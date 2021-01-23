@@ -1,0 +1,48 @@
+var plotPoints = [{
+  type: "Feature",
+  properties: {
+    type: "Theft",
+    occured_at: 1611183600
+  },
+  geometry: {
+    coordinates: [-122.38,
+      37.73
+    ]
+  }
+},
+{
+  type: "Feature",
+  properties: {
+    type: "Theft",
+    occured_at: 1611183600
+  },
+  geometry: {
+    coordinates: [-122.36,
+      37.74
+    ]
+  }
+}
+]
+
+
+var thiefIcon = "./assets/images/thief.png";
+
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  const uluru = {
+    lat: 37.7749,
+    lng: -122.4194
+  };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: uluru,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: uluru,
+    icon: thiefIcon,
+    map: map,
+  });
+}
