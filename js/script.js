@@ -26,6 +26,7 @@ var plotPoints = [{
 
 
 var thiefIcon = "./assets/images/thief.png";
+var crashIcon = "./assets/images/crash.png";
 
 // Initialize and add the map
 function initMap() {
@@ -42,7 +43,7 @@ function initMap() {
   // The marker, positioned at Uluru
   const marker = new google.maps.Marker({
     position: uluru,
-    icon: thiefIcon,
+    icon: crashIcon,
     map: map,
   });
 }
