@@ -1,3 +1,5 @@
+// use "updateMap(plotpoints); in console to test functionality"
+// substitute plotpoints to test mapping function. 
 var plotPoints = [{
     type: "Feature",
     properties: {
@@ -43,7 +45,7 @@ var plotPoints = [{
   }
 ]
 
-
+// icon variables 
 var thiefIcon = "./assets/images/thief1.png";
 var crashIcon = "./assets/images/crash1.png";
 var hazardIcon = "./assets/images/caution1.png"
