@@ -5,11 +5,11 @@ var plotPoints = [{
       occured_at: 1611183600
     },
     geometry: {
-      coordinates: [-122.38,
-        37.73
+      coordinates: [37.802894452433456, -122.2675161571865
       ]
     }
   },
+
   {
     type: "Feature",
     properties: {
@@ -17,8 +17,31 @@ var plotPoints = [{
       occured_at: 1611183600
     },
     geometry: {
-      coordinates: [-122.36,
-        37.74
+      coordinates: [37.80679186442484, -122.26515746558509
+      ]
+    }
+  },
+
+  {
+    type: "Feature",
+    properties: {
+      type: "Theft",
+      occured_at: 1611183600
+    },
+    geometry: {
+      coordinates: [37.800756233124126, -122.26893401582917
+      ]
+    }
+  },
+
+  {
+    type: "Feature",
+    properties: {
+      type: "Theft",
+      occured_at: 1611183600
+    },
+    geometry: {
+      coordinates: [37.8061815421042, -122.27468467188264
       ]
     }
   }
@@ -48,40 +71,32 @@ function initMap() {
   });
 }
 
-// Initialize and add the map
-function updateMap() {
-  // The location of Uluru
-  const uluru = {
-    lat: 37.81700600630262,
-    lng: -122.27867208032184
+// Update the map based on search
+function updateMap(incidents) {
+  
+  console.log(incidents[0].geometry.coordinates[0]);
+
+  const mapLocation = {
+    lat: incidents[0].geometry.coordinates[0],
+    lng: incidents[0].geometry.coordinates[1]
   };
-  // The map, centered at Uluru
+
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14,
-    center: uluru,
+    center: mapLocation,
   });
-  // The marker, positioned at Uluru
-  new google.maps.Marker({
-    position: uluru,
-    icon: crashIcon,
-    map: map,
-  });
+  
+for (i = 0; i < incidents.length; i++){
 
   new google.maps.Marker({
     position: {
-      lat: 37.81146395534422,
-      lng: -122.2817383103664
+      lat: incidents[i].geometry.coordinates[0],
+    lng: incidents[i].geometry.coordinates[1]
     },
     icon: thiefIcon,
     map: map,
   });
 
-  new google.maps.Marker({
-    position: {
-      lat: 37.812266556510906, 
-      lng: -122.29575793396552
-    },
-    icon: thiefIcon,
-    map: map,
-  });
+}
+
 }
