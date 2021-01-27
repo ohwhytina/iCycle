@@ -1,108 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>iCycle</title>
-  <!-- Google script for map-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTwDnaF7afyTpNfEEUISqrAFztXEZPNk&callback=initMap&libraries=&v=weekly" defer>
-  </script>
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
-  <nav class="blue-grey lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">iCycle</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
+  <nav role="navigation black">
+    <div class="nav-wrapper container white-text"><a id="logo-container" href="https://ohwhytina.github.io/iCycle/" class="brand-logo">iCycle</a>
   </nav>
 
   <!--Form to enter -->
-  <div class="container">
-    </br>
-    <div class="row">
-      <form class="col s6">
-        <h5>Enter location for Bike Incidents</h5>
+<div class="heroform">
+<div class="container formsearch z-depth-2">
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Enter City Name" id="_name" type="text" class="validate">
-            <label for="city_name">City Name</label>
-          </div>
+  <div class="row white">
+    <form class="col s6 forminfo indigo lighten-5">
+      <h5>Enter location for Bike Incidents</h5>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Enter City Name" id="_name" type="text" class="validate">
+          <label for="city_name">City Name</label>
         </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Start Date" id="_name" type="date" class="validate">
-            <label for="start-date">Start Date</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="End Date" id="_name" type="date" class="validate">
-            <label for="end-date">End Date</label>
-          </div>
-        </div>
-
-        <a class="waves-effect waves-light btn"><i class="material-icons left">send</i>Search</a>
-      </form>
-
-      <!--Search History Area-->
-      <div class="col s6">
-        <h5>Search History</h5>
-
       </div>
 
-    </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Start Date" id="_name" type="date" class="validate">
+          <label for="start-date">Start Date</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="End Date" id="_name" type="date" class="validate">
+          <label for="end-date">End Date</label>
+        </div>
+      </div>
+      <div class="button">
+      <a class="waves-effect waves-light btn"><i class="material-icons left">send</i>Search</a>
+      </div>
+    </form> 
+
+
+
+    <!--Search History Area-->
+  
+    <section class="col s6 white searchhistory">
+      <h5 class="center-align">Search History</h5>
+      <div>
+        testing
+      </div>
+
+    </section>
+    
+    
+
   </div>
+</div>
+</div>
 
-  <!--   List of Incidents  -->
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+     <!--   List of Incidents  -->
+<div class="container white reportincident">
+  <h4 class="center-align">Reports of Incidents</h4>
+     <table>
+      <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Type</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <tr>
-        <td>blank title</td>
-        <td>blank date</td>
-        <td>blank type</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        
+        
+      </tbody>
+    </table>
+</div>
 
-    </tbody>
-  </table>
 
-  <!--   Map  -->
-  <div class="row orange">
-    <div class="icon-block">
-      <div id="map" style="height: 500px;width: 100%;"></div>
-    </div>
+      <!--   Map  -->
+  <div class="container ">
+      <div class="row teal lighten-4">
+        <h4 class="center-align">Map</h4>
+          <div class="map icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+      </div>
   </div>
-
-
+  
+  
 
   <!--Footer Member Names-->
-  <footer class="page-footer footer-copyright blue-grey">
-    <div class="container">
-      Made by <a class="black-text text-lighten-3" href="#">Ben Wade</a>, <a class="black-text text-lighten-3"
-        href="#">Jonathan Mitchell</a>, <a class="black-text text-lighten-3" href="#">Tina Nguyen</a>
-    </div>
+  <footer class="page-footer light-blue darken-2">
+      <div class="container">
+      Made by <a class="black-text text-lighten-3" href="#">Ben Wade</a>, <a class="black-text text-lighten-3" href="#">Jonathan Mitchell</a>, <a class="black-text text-lighten-3" href="#">Tina Nguyen</a>
+      </div>
   </footer>
 
 
@@ -110,8 +138,6 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="./js/script.js"></script>
 
-</body>
-
+  </body>
 </html>
