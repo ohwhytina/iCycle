@@ -5,9 +5,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>iCycle</title>
+
   <!-- Google script for map-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTwDnaF7afyTpNfEEUISqrAFztXEZPNk&callback=initMap&libraries=&v=weekly" defer>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTwDnaF7afyTpNfEEUISqrAFztXEZPNk&libraries=&v=weekly"
+    defer>
   </script>
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -15,90 +18,150 @@
 </head>
 
 <body>
-  <nav class="blue-grey lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">iCycle</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
+  <nav role="navigation black">
+    <div class="nav-wrapper container white-text"><a id="logo-container" href="https://ohwhytina.github.io/iCycle/"
+        class="brand-logo">iCycle</a>
   </nav>
 
   <!--Form to enter -->
-  <div class="container">
-    </br>
-    <div class="row">
-      <form class="col s6">
-        <h5>Enter location for Bike Incidents</h5>
+  <div class="heroform">
+    <div class="container formsearch z-depth-2">
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Enter City Name" id="_name" type="text" class="validate">
-            <label for="city_name">City Name</label>
+      <div class="row white">
+        <form class="col s6 forminfo indigo lighten-5">
+          <h5>Enter location for Bike Incidents</h5>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Enter City Name" id="cityName" type="text" class="validate">
+              <label for="city_name">City Name</label>
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Start Date" id="_name" type="date" class="validate">
-            <label for="start-date">Start Date</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Start Date" id="_name" type="date" class="validate">
+              <label for="start-date">Start Date</label>
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="End Date" id="_name" type="date" class="validate">
-            <label for="end-date">End Date</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="End Date" id="_name" type="date" class="validate">
+              <label for="end-date">End Date</label>
+            </div>
           </div>
-        </div>
+          <div class="button" id="searchCity">
+            <a class="waves-effect waves-light btn"><i class="material-icons left">send</i>Search</a>
+          </div>
+        </form>
 
-        <a class="waves-effect waves-light btn"><i class="material-icons left">send</i>Search</a>
-      </form>
 
-      <!--Search History Area-->
-      <div class="col s6">
-        <h5>Search History</h5>
+
+        <!--Search History Area-->
+
+        <section class="col s6 white searchhistory">
+          <h5 class="center-align">Search History</h5>
+          <div>
+            testing
+          </div>
+
+        </section>
+
+
 
       </div>
-
     </div>
   </div>
 
   <!--   List of Incidents  -->
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+  <div class="container white reportincident">
+    <h4 class="center-align">Reports of Incidents</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Type</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <tr>
-        <td>blank title</td>
-        <td>blank date</td>
-        <td>blank type</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
+        <tr>
+          <td>blank title</td>
+          <td>blank date</td>
+          <td>blank type</td>
+        </tr>
 
-    </tbody>
-  </table>
 
-  <!--   Map  -->
-  <div class="row orange">
-    <div class="icon-block">
-      <div id="map" style="height: 500px;width: 100%;"></div>
-    </div>
+      </tbody>
+    </table>
   </div>
 
 
+  <!--   Map  -->
+  <div class="container ">
+    <div class="row teal lighten-4">
+      <h4 class="center-align">Map</h4>
+      <div class="map icon-block">
+        <div id="map" style="height: 500px;width: 100%;"></div>
+      </div><button data-target="modal1" class="btn modal-trigger">MAP KEY</button>
+
+    </div>
+  </div>
+
+  <!-- modal for map key -->
+  <div id="modal1" class="modal" tabindex="0"
+    style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+    <div class="modal-content">
+      <h4>MAP KEY</h4>
+      <ul>
+        <li><img src="./assets/images/thief1.png" alt=""><span>Bicycle was stolen here</span></li>
+        <li><img src="./assets/images/caution1.png" alt=""><span>Road hazard</span></li>
+        <li><img src="./assets/images/crash1.png" alt=""><span>Bicycle involved colision</span></li>
+        <li><img src="./assets/images/other1.png" alt=""><span>Other bicycle-related event</span></li>
+        <li><img src="./assets/images/ford.png" alt=""><span>Ford bike-share station</span></li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-red btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+  <!-- modal for city not found -->
+  <div id="modal2" class="modal" tabindex="0"
+    style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+    <div class="modal-content">
+      <h4>Whoops!</h4>
+      <p>We weren't able to find any incidents in your city!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-red btn-flat">CLOSE</a>
+    </div>
+  </div>
 
   <!--Footer Member Names-->
-  <footer class="page-footer footer-copyright blue-grey">
+  <footer class="page-footer light-blue darken-2">
     <div class="container">
       Made by <a class="black-text text-lighten-3" href="#">Ben Wade</a>, <a class="black-text text-lighten-3"
         href="#">Jonathan Mitchell</a>, <a class="black-text text-lighten-3" href="#">Tina Nguyen</a>

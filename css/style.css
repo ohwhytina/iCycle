@@ -12,3 +12,63 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.page-footer {
+  padding-bottom: 20px;
+}
+
+.heroform {
+  background-image: url('../assets/images/bike-background.jpg');
+  background-size: cover;
+  background-position: top;
+  height: 550px;
+
+
+}
+
+nav {
+  background-attachment: fixed;
+    position: sticky;
+    z-index: 9999;
+    top: 0;
+    background-color: black;
+}
+/** scroll table */
+
+tbody {
+  display:block;
+  height:150px;
+  overflow:auto;
+}
+
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+
+thead {
+  width: calc( 100% - 1em );
+}
+
+table {
+  width:100%;
+ 
+}
+
+.map {
+padding:auto;
+
+}
+
+.formsearch {
+  padding-top: 30px;
+}
+
+.button {
+  padding-bottom: 20px;
+}
+
+
+
+
