@@ -77,6 +77,7 @@ let mapLocation = {
   lat: incidents[0].geometry.coordinates[1],
   lng: incidents[0].geometry.coordinates[0]
 };
+
 //display map area of searched city
 const map = new google.maps.Map(document.getElementById("map"), {
   zoom: 11,
@@ -114,6 +115,10 @@ for (i = 0; i < incidents.length; i++) {
   });
 }
 
+
+// Only loads rideshare bicycles in the Bay Area
+if (mapLocation.lat < 38.00097580542832 && mapLocation.lat > 37.257267400382986 && mapLocation.lng > -122.70756957204485 && mapLocation.lng < -121.74497094661422) {
+console.log("loading bikes");
 fetch("http://api.citybik.es/v2/networks/ford-gobike")
   .then(function (response) {
     return response.json();
@@ -133,7 +138,7 @@ fetch("http://api.citybik.es/v2/networks/ford-gobike")
       });
     }
   })
-
+}
 }
 
 
