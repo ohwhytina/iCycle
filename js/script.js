@@ -1,49 +1,4 @@
-// use "updateMap(plotpoints); in console to test functionality"
-// substitute plotpoints to test mapping function. 
-var plotPoints = [{
-  type: "Feature",
-  properties: {
-    type: "Crash",
-    occured_at: 1611183600
-  },
-  geometry: {
-    coordinates: [37.802894452433456, -122.2675161571865]
-  }
-},
 
-{
-  type: "Feature",
-  properties: {
-    type: "Hazard",
-    occured_at: 1611183600
-  },
-  geometry: {
-    coordinates: [37.80679186442484, -122.26515746558509]
-  }
-},
-
-{
-  type: "Feature",
-  properties: {
-    type: "Theft",
-    occured_at: 1611183600
-  },
-  geometry: {
-    coordinates: [37.800756233124126, -122.26893401582917]
-  }
-},
-
-{
-  type: "Feature",
-  properties: {
-    type: "food",
-    occured_at: 1611183600
-  },
-  geometry: {
-    coordinates: [37.8061815421042, -122.27468467188264]
-  }
-}
-]
 //location of bike share stations
 var fordGoBikes = [];
 //array to hold searched-for area
@@ -56,14 +11,41 @@ var otherIcon = "./assets/images/other1.png"
 var fordIcon = "./assets/images/ford.png"
 
 function launch(city){
-fetch("https://bikewise.org:443/api/v2/locations?proximity=" + city + "&proximity_square=15")
+fetch("https://bikewise.org:443/api/v2/locations?proximity=" + city + "&proximity_square=10")
 .then(function (response) {
   return response.json();
 })
 .then(function (response) {
   searchedArea = response.features;
-  updateMap(searchedArea)
+  updateMap(searchedArea);
+  reports(searchedArea);
 })}
+
+//fills out report section 
+function reports(city){
+
+  $("tbody").empty();
+
+  for (i=0; i < 50; i++){
+
+  var newRow = document.createElement("tr");
+  var iD = document.createElement("td");
+  iD.textContent = city[i].properties.id
+  newRow.appendChild(iD);
+
+  var theDate = document.createElement("td");
+  var options = { year: 'numeric', month: 'long', day: 'numeric' };
+  var thisDate = (new Date(city[i].properties.occurred_at * 1000)).toLocaleDateString("en-US", options);
+  theDate.textContent = thisDate;
+  newRow.appendChild(theDate);
+
+  var type = document.createElement("td");
+  type.textContent = (city[i].properties.type);
+  newRow.appendChild(type);
+  $("tbody").append(newRow);
+}}
+
+
 
 // Update the map based on search
 function updateMap(incidents) {
@@ -112,13 +94,14 @@ for (i = 0; i < incidents.length; i++) {
     icon: icon,
     animation: google.maps.Animation.DROP,
     map: map,
+    title: (incidents[i].properties.id).toString()
   });
 }
 
 
 // Only loads rideshare bicycles in the Bay Area
 if (mapLocation.lat < 38.00097580542832 && mapLocation.lat > 37.257267400382986 && mapLocation.lng > -122.70756957204485 && mapLocation.lng < -121.74497094661422) {
-console.log("loading bikes");
+
 fetch("http://api.citybik.es/v2/networks/ford-gobike")
   .then(function (response) {
     return response.json();
@@ -146,6 +129,16 @@ $("#searchCity").click(function(){
 var searchFor = $("#cityName").val();
 launch(searchFor);
 });
+
+$("#cityName").keypress(function (e) {
+  var key = e.which;
+  if(key == 13)
+   {
+    event.preventDefault(); 
+    $("#searchCity").click();
+    $("#cityName").val("");
+   }
+ }); 
 
 $(document).ready(function () {
 $('#modal1').modal();
