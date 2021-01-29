@@ -2,7 +2,7 @@
 var fordGoBikes = [];
 //array to hold searched-for area
 var searchedArea = [];
-var previousCities = [];
+var previousCities = JSON.parse(localStorage.getItem("cities")) || [];
 // icon variables 
 var thiefIcon = "./assets/images/thief1.png";
 var crashIcon = "./assets/images/crash1.png";
@@ -13,6 +13,7 @@ var fordIcon = "./assets/images/ford.png"
 function launch(city) {
   var startD = new Date($("#startDate").val()).getTime();
   var endD = new Date($("#endDate").val()).getTime();
+  console.log(startD);
   if (!startD){
     startD = "";
   }
@@ -20,7 +21,7 @@ function launch(city) {
     endD = "";
   }
 
-  fetch("https://bikewise.org:443/api/v2/locations?occurred_before="+ startD +"&occurred_after=" + endD + "&proximity=" + city + "&proximity_square=10")
+  fetch("https://bikewise.org:443/api/v2/locations?occurred_before="+ endD +"&occurred_after=" + startD + "&proximity=" + city + "&proximity_square=10")
 
     .then(function (response) {
       return response.json();
