@@ -182,3 +182,5 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('#modal2').modal();
 });
+
+launch("portland");
