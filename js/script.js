@@ -11,16 +11,16 @@ var otherIcon = "./assets/images/other1.png"
 var fordIcon = "./assets/images/ford.png"
 
 function launch(city) {
-  var startD = new Date($("#startDate").val()).getTime();
-  var endD = new Date($("#endDate").val()).getTime();
-  console.log(startD);
+  var startD = new Date($("#startDate").val()).getTime() / 1000;
+  var endD = new Date($("#endDate").val()).getTime() / 1000;
+  
   if (!startD){
     startD = "";
   }
   if (!endD){
     endD = "";
   }
-
+  console.log(startD);
   fetch("https://bikewise.org:443/api/v2/locations?occurred_before="+ endD +"&occurred_after=" + startD + "&proximity=" + city + "&proximity_square=10")
 
     .then(function (response) {
@@ -166,6 +166,7 @@ function updateMap(incidents) {
 $("#searchCity").click(function () {
   var searchFor = $("#cityName").val();
   launch(searchFor);
+  $("#cityName").val("");
 });
 
 $("#cityName").keypress(function (e) {
