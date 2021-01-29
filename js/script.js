@@ -11,8 +11,17 @@ var otherIcon = "./assets/images/other1.png"
 var fordIcon = "./assets/images/ford.png"
 
 function launch(city) {
+  var startD = new Date($("#startDate").val()).getTime();
+  var endD = new Date($("#endDate").val()).getTime();
+  if (!startD){
+    startD = "";
+  }
+  if (!endD){
+    endD = "";
+  }
 
-  fetch("https://bikewise.org:443/api/v2/locations?proximity=" + city + "&proximity_square=10")
+  fetch("https://bikewise.org:443/api/v2/locations?occurred_before="+ startD +"&occurred_after=" + endD + "&proximity=" + city + "&proximity_square=10")
+
     .then(function (response) {
       return response.json();
     })
@@ -52,7 +61,7 @@ function reports(city) {
 
   $("tbody").empty();
 
-  for (i = 0; i < 50; i++) {
+  for (i = 0; i < city.length; i++) {
 
     var newRow = document.createElement("tr");
     var iD = document.createElement("td");
@@ -80,7 +89,6 @@ function reports(city) {
 function updateMap(incidents) {
   if (!incidents[0]) {
     $('#modal2').modal("open");
-    launch("san francisco")
     return;
   }
 
@@ -174,5 +182,3 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('#modal2').modal();
 });
-
-launch("portland");
