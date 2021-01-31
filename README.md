@@ -32,4 +32,4 @@ https://github.com/ohwhytina
 https://github.com/benwade91
 
 ## Preview of Page
-![alt text](./assets/images/screenshot.png?raw=true)
+![alt text](/assets/images/screenshot.png?raw=true)
