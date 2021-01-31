@@ -20,7 +20,7 @@ function launch(city) {
   if (!endD){
     endD = "";
   }
-  console.log(startD);
+  
   fetch("https://bikewise.org:443/api/v2/locations?occurred_before="+ endD +"&occurred_after=" + startD + "&proximity=" + city + "&proximity_square=10")
 
     .then(function (response) {
@@ -28,6 +28,9 @@ function launch(city) {
     })
     .then(function (response) {
       searchedArea = response.features;
+      if (!searchedArea){
+        $('#modal2').modal("open");
+        return;}
       updateMap(searchedArea);
       reports(searchedArea);
       if (previousCities[0] === city || previousCities[1] === city || previousCities[2] === city || previousCities[3] === city) {
