@@ -13,22 +13,16 @@ iCycle uses HTML5 and the Materialize CSS library for the homepage design. The f
 
 ## Contributors 
 
-### Johnathan Mitchell
-
+#### Johnathan Mitchell
 -BikeWise API functionality using Javascript
-
 https://github.com/jonathanmll
 
-### Tina Nguyen
-
+#### Tina Nguyen
 -Homepage design using HTML5, CSS3, and Materialize CSS
-
 https://github.com/ohwhytina
 
-### Ben Wade
-
+#### Ben Wade
 -CityBike API and GoogleMaps API functionality using Javascript and Jquery
-
 https://github.com/benwade91
 
 ## Preview of Page
